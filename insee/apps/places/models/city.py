@@ -14,7 +14,7 @@ class City(models.Model):
     name = models.CharField(verbose_name=_("name"), max_length=255)
     population = models.DecimalField(
         verbose_name=_("population"),
-        max_digits=3,
+        max_digits=5,
         decimal_places=1,
     )
     area = models.DecimalField(
@@ -29,8 +29,8 @@ class City(models.Model):
     )
 
     class Meta:
-        verbose_name = _("country")
-        verbose_name_plural = _("countries")
+        verbose_name = _("city")
+        verbose_name_plural = _("cities")
 
     def __str__(self):
         return self.name

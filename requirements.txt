@@ -1,2 +1,4 @@
 Django==3.*
+django-extensions==3.*
 psycopg2
+tqdm
