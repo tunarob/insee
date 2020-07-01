@@ -45,14 +45,14 @@ class Migration(migrations.Migration):
                 ('code_insee', models.CharField(max_length=50, verbose_name='code insee')),
                 ('code_postal', models.CharField(max_length=50, verbose_name='code postal')),
                 ('name', models.CharField(max_length=255, verbose_name='name')),
-                ('population', models.DecimalField(decimal_places=1, max_digits=3, verbose_name='population')),
+                ('population', models.DecimalField(decimal_places=1, max_digits=5, verbose_name='population')),
                 ('area', models.DecimalField(decimal_places=1, max_digits=8, verbose_name='area')),
                 ('county', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='places.County',
                                              verbose_name='county')),
             ],
             options={
-                'verbose_name': 'country',
-                'verbose_name_plural': 'countries',
+                'verbose_name': 'city',
+                'verbose_name_plural': 'cities',
             },
         ),
     ]
