@@ -10,7 +10,8 @@ FILENAME = "correspondance-code-insee-code-postal.csv"
 
 def run():
     current_path = os.path.dirname(os.path.abspath(__file__))
-    with open(os.path.join(current_path, FILENAME)) as f:
+    file_path = os.path.join(current_path, FILENAME)
+    with open(file_path) as f:
         rows = csv.DictReader(f, delimiter=";")
         for row in tqdm(rows):
             region = get_or_create_region(row)
