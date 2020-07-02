@@ -1,7 +1,6 @@
-from django.db.models import Sum
 from rest_framework import serializers
 
-from insee.apps.places.models import City, Region
+from insee.apps.places.models import Region
 
 
 class RegionSerializer(serializers.ModelSerializer):
@@ -13,11 +12,7 @@ class RegionSerializer(serializers.ModelSerializer):
         fields = ["code", "name", "totalArea", "totalPopulation"]
 
     def get_totalArea(self, obj: Region):
-        return City.objects.filter(county__region=obj).aggregate(
-            total=Sum("area")
-        )["total"]
+        return obj.get_total_area()
 
     def get_totalPopulation(self, obj: Region):
-        return City.objects.filter(county__region=obj).aggregate(
-            total=Sum("population")
-        )["total"]
+        return obj.get_total_population()
