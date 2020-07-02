@@ -18,5 +18,6 @@ API available at http://localhost:8000/api/
 
 # Issues
 * not sure if all fields have correct type (DB)
+* no tests included
 * population and area are calculated each time being accessed. It does a DB SUM. Something to improve, maybe by denorming these fields (making them a proper table fields) and recalculating every time other models change (Django signals / celery tasks to queue etc...)
 * fetching lat/lon also not very efficient. As above it makes a HTTP request to an external API which makes it slow. Could also store it in DB and for example check if coords exist, if not mayne then make a request or other strategy.
